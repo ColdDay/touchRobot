@@ -1,0 +1,29 @@
+{
+  "name": "touch-robot",
+  "version": "1.0.3",
+  "description": "机器模拟移动端触碰点击，手指滑动，供自动化测试使用",
+  "keywords": [
+    "puppeteer",
+    "模拟触碰",
+    "touch"
+  ],
+  "main": "./lib/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ColdDay/touchRobot.git"
+  },
+  "devDependencies": {
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.3.0"
+  },
+  "author": "yangjinkai",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ColdDay/touchRobot/issues"
+  },
+  "homepage": "https://github.com/ColdDay/touchRobot#readme"
+}
