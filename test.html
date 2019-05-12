@@ -24,50 +24,40 @@
 		#canvas canvas{
 		    display: block;
 		}
-		#clearCanvas{
-		    width: 50%;
-		    height: 40px;
-		    line-height: 40px;
-		    text-align: center;
-		    position: absolute;
-		    bottom: 0;
-		    left: 0;
-		    border: 1px solid #DEDEDE;
-		    z-index: 1;
-		}
-		#saveCanvas{
-		    width: 50%;
-		    height: 40px;
-		    line-height: 40px;
-		    text-align: center;
-		    position: absolute;
-		    bottom: 0;
-		    right: 0;
-		    border: 1px solid #DEDEDE;
-		    z-index: 1;
-		}
-			</style>
-		</head>
+        .pop{
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+
+        }
+	</style>
+    </head>
 
 
-		<body>
-			<div id="canvas">
-            快按看彩蛋<br>
-            <button onclick="touchLeft()">左滑</button>
-            <button onclick="touchRight()">右滑</button>
-            <button onclick="touchTop()">上滑</button>
-            <button onclick="touchBottom()">下滑</button>
-		</div>
+    <body>
+        <div id="canvas">
+            <div class="pop">
+                快按看彩蛋<br>
+                <button onclick="touchLeft()">左滑</button>
+                <button onclick="touchRight()">右滑</button>
+                <button onclick="touchTop()">上滑</button>
+                <button onclick="touchBottom()">下滑</button>
+                <button onclick="reDraw()">回放</button>
+                <button id="clearCanvas">清除画布</button>
+            </div>
+        
+    </div>
 	
  </body>
  <script type="text/javascript">
- window.onload = function() {
-    new lineCanvas({
-        el: document.getElementById("canvas"),//绘制canvas的父级div
-        clearEl: document.getElementById("clearCanvas"),//清除按钮
-        saveEl: document.getElementById("saveCanvas"),//保存按钮
-    });
-};
+    window.onload = function() {
+        new lineCanvas({
+            el: document.getElementById("canvas"),//绘制canvas的父级div
+            clearEl: document.getElementById("clearCanvas"),
+        });
+    };
+var xyData = []
 function lineCanvas(obj) {
     this.linewidth = 1;
     this.color = "#000000";
@@ -86,7 +76,6 @@ function lineCanvas(obj) {
     this.cxt.lineWidth = this.linewidth;
     this.cxt.lineCap = "round";
     //开始绘制
-    var xyData = []
     this.canvas.addEventListener("touchstart", function(e) {
     	xyData = []
         this.cxt.beginPath();
@@ -104,26 +93,36 @@ function lineCanvas(obj) {
     	console.log(xyData)
         this.cxt.closePath();
     }.bind(this), false);
+
+    this.clearEl.addEventListener("click", function() {
+        this.cxt.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    }.bind(this), false);
+    
 };
+function clear() {
+    this.cxt.clearRect(0, 0, this.canvas.width, this.canvas.height);
+}
 function touchLeft(){
     var robot = new touchRobot(document.querySelector('canvas'));
-
     robot.touchLeft()
 }
 function touchRight(){
     var robot = new touchRobot(document.querySelector('canvas'));
-
     robot.touchRight()
 }
 function touchTop(){
     var robot = new touchRobot(document.querySelector('canvas'));
-
     robot.touchTop()
 }
 function touchBottom(){
     var robot = new touchRobot(document.querySelector('canvas'));
-
     robot.touchBottom()
+}
+function reDraw(){
+    document.getElementById('clearCanvas').click();
+    var robot = new touchRobot(document.querySelector('canvas'));
+    robot.touch(xyData)
+    
 }
 </script>
 </body>
