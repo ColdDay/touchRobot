@@ -1,6 +1,6 @@
 {
   "name": "touch-robot",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "机器模拟移动端触碰点击，手指滑动，供自动化测试使用",
   "keywords": [
     "puppeteer",
