@@ -12,6 +12,10 @@
 		    height: 100%;
 		    margin: 0;
 		}
+        button{
+            border: 2px solid #000;
+            font-size: 20px;
+        }
 		#canvas{
 		    width: 100%;
 		    height: 100%;
@@ -48,8 +52,11 @@
 
 		<body>
 			<div id="canvas">
-		    <p id="clearCanvas">清除</p>
-		    <p id="saveCanvas">保存</p>
+            快按看彩蛋<br>
+            <button onclick="touchLeft()">左滑</button>
+            <button onclick="touchRight()">右滑</button>
+            <button onclick="touchTop()">上滑</button>
+            <button onclick="touchBottom()">下滑</button>
 		</div>
 	
  </body>
@@ -97,16 +104,27 @@ function lineCanvas(obj) {
     	console.log(xyData)
         this.cxt.closePath();
     }.bind(this), false);
-    //清除画布
-    this.clearEl.addEventListener("click", function() {
-        this.cxt.clearRect(0, 0, this.canvas.width, this.canvas.height);
-    }.bind(this), false);
-    //保存图片，直接转base64
-    this.saveEl.addEventListener("click", function() {
-        var imgBase64 = this.canvas.toDataURL();
-        console.log(imgBase64);
-    }.bind(this), false);
 };
+function touchLeft(){
+    var robot = new touchRobot(document.querySelector('canvas'));
+
+    robot.touchLeft()
+}
+function touchRight(){
+    var robot = new touchRobot(document.querySelector('canvas'));
+
+    robot.touchRight()
+}
+function touchTop(){
+    var robot = new touchRobot(document.querySelector('canvas'));
+
+    robot.touchTop()
+}
+function touchBottom(){
+    var robot = new touchRobot(document.querySelector('canvas'));
+
+    robot.touchBottom()
+}
 </script>
 </body>
 </html>

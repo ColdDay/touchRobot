@@ -1,13 +1,13 @@
 {
   "name": "touch-robot",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "机器模拟移动端触碰点击，手指滑动，供自动化测试使用",
   "keywords": [
     "puppeteer",
     "模拟触碰",
     "touch"
   ],
-  "main": "index.js",
+  "main": "./lib/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack"
