@@ -1,5 +1,5 @@
 # touchRobot
-机器模拟移动端触碰点击，手指滑动，供自动化测试使用
+机器模拟移动端触碰点击，手指滑动
 
 ## Install
 ### NPM
@@ -8,12 +8,10 @@ npm install touch-robot
 ```
 ```
 import touchRobot from 'touch-robot';
-
 ```
 ### CDN
 ```
 <script type="text/javascript" src="./dist/touch-robot.min.js"></script>
-
 ```
 ### Usage
 ```
@@ -22,9 +20,8 @@ var robot = new touchRobot(dom);
 robot.touchLeft();
 ```
 ## API
-
-|方法（method）|描述（description）
-----|:---:|----:
+|方法（method）|描述（description）|
+|----|----:|
 touchLeft|左滑
 touchRight|右滑
 touchTop|上滑
